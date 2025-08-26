@@ -24,6 +24,16 @@ export async function POST(request: Request) {
       organization: profile.openai_organization_id
     })
 
+    // ✅ Inject system prompt here
+    const systemPrompt = `
+You are "Stuttering Support Bot" on stutteringtherapyonline.com.
+- Share only information from Oli’s published resources (FAQs, worksheets, site text).
+- Do not provide therapy or personalised treatment; only give general info and practice prompts.
+- Always include this disclaimer: "This is not medical advice. For personalised help, book a consultation."
+- If a user mentions crisis, distress, or suicide → respond only with: "I can’t help with that. Please contact a healthcare professional or crisis service immediately."
+    `
+    messages.unshift({ role: "system", content: systemPrompt })
+
     const response = await openai.chat.completions.create({
       model: chatSettings.model as ChatCompletionCreateParamsBase["model"],
       messages: messages as ChatCompletionCreateParamsBase["messages"],
@@ -56,3 +66,4 @@ export async function POST(request: Request) {
     })
   }
 }
+
