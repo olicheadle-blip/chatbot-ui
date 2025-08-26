@@ -10,7 +10,7 @@ View the latest demo [here](https://x.com/mckaywrigley/status/173827324228315177
 
 ## Updates
 
-Hey everyone! I've heard your feedback and am working hard on a big update.
+Hey everyone! I've heard your  feedback and am working hard on a big update.
 
 Things like simpler deployment, better backend compatibility, and improved mobile layouts are on their way.
 
